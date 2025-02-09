@@ -3,7 +3,6 @@
     font-family: "Montserrat", serif;
 }
 
-
 .navbar {
     display: flex;
     justify-content: space-around;
@@ -447,3 +446,17 @@
 .product-card img:hover {
     transform: scale(1.1); /* Zoom effect on hover */
 }
+
+body {
+    overflow: hidden; /* Hide scrollbars */
+    overflow-y: auto; /* Allow vertical scrolling */
+    scrollbar-width: none; /* Hide scrollbar in Firefox */
+    -ms-overflow-style: none; /* Hide scrollbar in IE/Edge */
+}
+
+/* For Webkit-based browsers (Chrome, Safari) */
+::-webkit-scrollbar {
+    width: 0px; /* Hide scrollbar */
+    background: transparent; /* Optional: Make it fully invisible */
+}
+    
