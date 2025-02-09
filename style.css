@@ -3,6 +3,10 @@
     font-family: "Montserrat", serif;
 }
 
+body {
+  overflow: hidden; /* Hide scrollbars */
+}
+
 .navbar {
     display: flex;
     justify-content: space-around;
