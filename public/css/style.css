@@ -1,0 +1,462 @@
+*{
+    margin: 0;
+    font-family: "Montserrat", serif;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px 20px;
+    background: white;
+}
+
+.nav-left, .nav-right {
+    display: flex;
+    list-style: none;
+    padding: 0;
+}
+
+.nav-left li, .nav-right li {
+    position: relative;
+    margin: 0 15px;
+}
+
+.nav-left a, .nav-right a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    padding: 10px;
+    display: block;
+}
+
+.logo a {
+    font-size: 24px;
+    font-weight: bold;
+    color: #003366;
+    text-decoration: none;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: white;
+    list-style: none;
+    padding: 0;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    width: 180px;
+    z-index: 1000;
+}
+
+.dropdown:hover > .dropdown-menu {
+    display: block;
+}
+
+.dropdown-menu li {
+    position: relative;
+}
+
+.dropdown-menu > li > a {
+    padding: 10px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    white-space: nowrap;
+    padding-right: 40px; /* Increased padding for more space */
+}
+
+.dropdown-menu > li > a::after {
+    content: '\25B6'; /* Unicode for right arrow */
+    font-size: 12px;
+    margin-left: auto;
+    opacity: 0.6;
+    position: relative;
+    right: 20px; /* Increased the shift to move the arrow more to the right */
+}
+
+.dropdown-menu .dropdown-menu li a::after {
+    content: ''; /* Remove arrow from sub-options */
+}
+
+.dropdown-menu .dropdown-menu {
+    left: 100%;
+    top: 0;
+    margin-left: 2px;
+    top: 28px; /* Shifted sub-options down by 28px (20px + 8px more) */
+}
+
+.dropdown-menu li:hover > .dropdown-menu {
+    display: block;
+}
+
+.drop{
+    display: flex;
+}
+
+.dropdown-icon {
+    width: 12px; /* Adjust the width as needed */
+    height: 12px;
+    margin-left: 5px; /* Adds space between text and icon */
+    vertical-align: middle;
+}
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: black;
+}
+
+.dropdown-icon {
+    width: 12px; /* Adjust size as needed */
+    height: 12px;
+    margin-left: 5px;
+    vertical-align: middle;
+    transition: transform 0.3s ease; /* Smooth rotation effect */
+}
+
+/* Rotate the arrow when the dropdown menu is hovered */
+.dropdown:hover .dropdown-icon {
+    transform: rotate(180deg);
+}
+
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Space between icons */
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-right li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.icon-size img {
+    width: 20px; /* Set icon size */
+    height: 20px;
+    object-fit: contain;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+}
+
+.icon-size img:hover {
+    transform: scale(1.1); /* Slight zoom on hover */
+}
+
+.nav-right li:first-child a {
+    font-size: 16px; /* Adjust the size if needed */
+    font-weight: 500; /* Makes it very light */
+    color:#808080 /* Light gray color */
+}
+#search-icon{
+    opacity: 0.6;
+}
+
+.nav-right li:last-child img {
+    width: 22px; /* Increased size */
+    height: 22px;
+}
+
+.fashgo-img {
+    display: block;
+    margin: 16px auto 0; /* Centers the image and adds 16px margin from navbar */
+    width: 95%;
+    border-radius: 12px;
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 5px 20px;
+    background: white;
+    z-index: 1000; /* Ensures the navbar stays above other elements */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Optional: adds a slight shadow */
+}
+
+.banner{
+    background-color: #1B5264;
+    padding-top: 120px;
+    padding-bottom: 24px;
+    color:white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.banner-text{
+   font-size:large;
+}
+
+
+.ad {
+    display: flex;
+    justify-content: space-around;
+    align-items: stretch; /* Ensures all divs take the same height */
+    gap: 15px;
+    width: 90%;
+    margin: auto;
+    flex-wrap:nowrap;
+    margin-top: 60px;
+    margin-bottom: 60px;
+}
+
+.ad > div {
+    text-align: center;
+    width: 18%;
+    background: #fff;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
+    min-height: 180px;  /* Ensures uniform height */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
+/* Ensuring images stay at the top and text is centered */
+.ad img {
+    width: 70px;
+    margin-bottom: 10px;
+    align-self: center;
+}
+
+/* Responsive Fix */
+@media (max-width: 1024px) {
+    .ad > div {
+        width: 45%;
+        min-height: auto; /* Reset height for smaller screens */
+    }
+}
+
+@media (max-width: 600px) {
+    .ad {
+        flex-direction: column;
+    }
+
+    .ad > div {
+        width: 90%;
+    }
+}
+
+.ad > div:hover {
+    transform: scale(1.05); /* Slightly enlarges the box */
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2); /* Adds a stronger shadow */
+    transition: all 0.3s ease-in-out; /* Smooth animation */
+}
+
+.ad > div p {
+    color: #808080;
+    font-size: small;
+}
+
+.brand-shop h2{
+    display: flex;
+    justify-content: center;
+    margin: 12px;
+    font-weight:bolder;
+    color: black;
+}
+
+.brand-shop p{
+    display: flex;
+    justify-content: center;
+    margin: 12px;
+    color: #808080;
+    font-size: 16px;
+    font-weight: lighter;
+}
+
+.brand-logo{
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 60px;
+    margin-bottom: 60px;
+    flex-wrap:nowrap;
+}
+
+.brand-logo img{
+    width: 220px;
+}
+
+.brand-logo > div:hover {
+    transform: scale(1.05); /* Slightly enlarges the box */
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2); /* Adds a stronger shadow */
+    transition: all 0.3s ease-in-out; /* Smooth animation */
+}
+
+.brand-logo > .nike {
+    text-align: center;
+    width:auto;
+    background: black;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
+    min-height: 180px;  /* Ensures uniform height */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.brand-logo > .lv {
+    text-align: center;
+    width:auto;
+    background: #3E302D;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
+    min-height: 180px;  /* Ensures uniform height */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.brand-logo > .gap {
+    text-align: center;
+    width:auto;
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
+    min-height: 180px;  /* Ensures uniform height */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.brand-logo > .hm {
+    text-align: center;
+    width:auto;
+    background: #E71D2C;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
+    min-height: 180px;  /* Ensures uniform height */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.brand-logo > .versace{
+    text-align: center;
+    width:auto;
+    background:#000000;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
+    min-height: 180px;  /* Ensures uniform height */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.advertisement {
+    display: block;
+    margin: 20px auto; /* Centers horizontally */
+    max-width: 95%; /* Ensures it doesn't exceed its container */
+    border-radius: 12px;
+    margin-bottom: 60px;
+}
+
+
+#abcdd{
+    margin-bottom: 20px;
+}
+.product-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: nowrap;
+    gap: 30px; /* Increased gap for better spacing */
+    max-width: 1500px; /* Slightly increased width */
+    margin: 0 auto;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.product-card {
+    width: 300px; /* Increased width for larger cards */
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.product-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.product-card p {
+    font-size: 14px;
+    margin: 10px 0 5px;
+}
+
+.product-card h3 {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 5px 0;
+}
+
+.sale {
+    position: relative;
+}
+
+.sale-badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: black;
+    color: white;
+    font-size: 12px;
+    padding: 4px 8px;
+    border-radius: 12px;
+}
+
+.original-price {
+    text-decoration: line-through;
+    color: gray;
+    font-size: 14px;
+    margin-left: 5px;
+}
+
+.discount {
+    color: red;
+    font-size: 14px;
+    font-weight: bold;
+}   
+
+.product-card img:hover {
+    transform: scale(1.1); /* Zoom effect on hover */
+}
+
+body {
+    overflow: hidden; /* Hide scrollbars */
+    overflow-y: auto; /* Allow vertical scrolling */
+    scrollbar-width: none; /* Hide scrollbar in Firefox */
+    -ms-overflow-style: none; /* Hide scrollbar in IE/Edge */
+}
+
+/* For Webkit-based browsers (Chrome, Safari) */
+::-webkit-scrollbar {
+    width: 0px; /* Hide scrollbar */
+    background: transparent; /* Optional: Make it fully invisible */
+}
+    
