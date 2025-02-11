@@ -505,3 +505,21 @@ body {
     right: 16px; /* Ensured proper alignment */
 }
 
+
+.add-to-cart-button{
+    padding: 12px 20px;
+    margin-top: 8px;
+    background-color:#D3D3D3;
+    border-radius: 16px;
+    color: black;
+    border: none;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size:smaller;
+    cursor: pointer;
+}
+.button-link{
+    text-decoration: none;
+    color: black;
+}
