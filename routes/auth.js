@@ -70,7 +70,7 @@ router.post('/login', async (req, res) => {
         // return res.status(200).json({ ...others, accessToken });
         const users = {...others,accessToken}
 
-        res.render("dashboard.ejs",{users});
+        res.render("home.ejs",{users});
 
     }catch(err){
         return res.status(500).json(err);
