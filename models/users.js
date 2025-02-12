@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 const UserSchema = new mongoose.Schema(
   {
-    name: {
+    username: {
       type: String,
       required: [true, "Username is required"],
       unique: true,
@@ -17,6 +17,10 @@ const UserSchema = new mongoose.Schema(
       type: String,
       required: [true, "Password is required"],
     },
+    isAdmin : {
+      type: Boolean,
+      default: false,
+    }
   },
   { timestamps: true }
 );
