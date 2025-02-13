@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", function () {
     wishlistButton.addEventListener("mouseenter", function () {
         // Create a new Image element to completely reset the GIF
         let newGif = document.createElement("img");
-        newGif.src = "../images/icons8-heart.gif"; // Set GIF source
+        newGif.src = "/images/icons8-heart.gif"; // Set GIF source
         newGif.className = "wishlist-icon"; // Apply same class
         newGif.style.height = "24px"; // Maintain same size
 
@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", function () {
     wishlistButton.addEventListener("mouseleave", function () {
         setTimeout(() => {
             let newStaticImg = document.createElement("img");
-            newStaticImg.src = "../images/icons8-heart-50.png"; // Set PNG source
+            newStaticImg.src = "/images/icons8-heart-50.png"; // Set PNG source
             newStaticImg.className = "wishlist-icon"; // Apply same class
             newStaticImg.style.height = "24px"; // Maintain same size
 

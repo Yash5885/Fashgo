@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FashGo | Cart</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/cart_style.css">
+    <script src="https://kit.fontawesome.com/yourkitid.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <%- include("./layouts/header.ejs") %>
+
+    <div class="container">
+        <div class="cart">
+            <div class="delivery">
+                <p>Deliver To: <strong>560009</strong></p>
+                <button class="change-btn">CHANGE</button>
+            </div>
+            <% if (cartItems.length === 0) { %>
+                <p>Your cart is empty.</p>
+            <% } else { %>
+                <h2>Your Bag <span><%= cartItems.length %> items</span></h2>    
+            <% cartItems.forEach(item => { %>
+            
+            <div class="cart-item">
+                <img src="<%= item.productId.image %>" alt="<%= item.productId.name %>" class="product-image">
+                <div class="product-details">
+                    <h3>FASHGO</h3>
+                    <p><%= item.productId.name %></p>
+                    <p class="sold-by">Sold by: Blip Fashion Private Limited</p>
+                    <div class="size-quantity">
+                        <select>
+                            <option>Size: <%= item.productId.size %></option>
+                        </select>
+                        <div class="quantity">
+                            <button>-</button>
+                            <span><%= item.quantity %></span>
+                            <button>+</button>
+                        </div>
+                        <span class="stock">Hurry! Only 3 Left</span>
+                    </div>
+                    <p class="price">₹<%= item.productId.price %></p>
+                </div>
+                <form action="/remove-from-cart/<%= item._id %>" method="POST">
+                    <button class="remove">&times;</button>
+                </form>
+            </div>
+            <% }) %>
+            <% } %>
+        </div>
+
+        <div class="summary">
+            <div class="coupons">
+                <button class="apply-coupons">Apply Coupons</button>
+            </div>
+            <div class="price-summary">
+                <h3>PRICE SUMMARY (<%= cartItems.length %> ITEM<%= cartItems.length > 1 ? 'S' : '' %>)</h3>
+                <p>Total MRP <span>₹<%= totalPrice %></span></p>
+                <p>Subtotal <span>₹<%= totalPrice %></span></p>
+                <p class="total">Total <span>₹<%= totalPrice %></span></p>
+            </div>
+            <button class="login-btn">LOGIN</button>
+            <button class="share-cart">SHARE SHOPPING CART</button>
+        </div>
+    </div>
+
+    <%- include("./layouts/footer.ejs") %>
+
+</body>
+</html>
