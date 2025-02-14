@@ -6,7 +6,12 @@ const path = require("path");
 const User = require("./models/users.js");
 const Product = require("./models/product.js");
 const Cart = require("./models/cart.js");
+const DeliveryZone = require("./models/deliveryZone.js")
 const dotenv = require("dotenv");
+const cookieParser = require("cookie-parser");
+const bodyParser = require("body-parser");
+const methodOverride = require("method-override");
+const jwt = require("jsonwebtoken");
 const session = require("express-session");
 const userRoute = require("./routes/user.js");
 const authRoute = require("./routes/auth.js");
@@ -27,6 +32,9 @@ main()
 app.set("view engine","ejs");
 app.set("views",path.join(__dirname,"views"));
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(methodOverride("_method"));
+app.use(cookieParser());
 app.use(express.urlencoded({extended:true}));
 app.use(express.json());
 
@@ -81,6 +89,47 @@ app.post("/remove-from-cart/:id", async (req, res) => {
   });
 
 
+  app.post("/check-delivery", async (req, res) => {
+    const { pincode } = req.body;
+
+    try {
+        const zone = await DeliveryZone.findOne({ pincode });
+
+        if (zone) {
+            res.json({ deliverable: true });
+        } else {
+            res.json({ deliverable: false });
+        }
+    } catch (error) {
+        res.json({ deliverable: false, error: "Something went wrong." });
+    }
+});
+
+app.post("/get-location", async (req, res) => {
+    const { latitude, longitude } = req.body;
+
+    try {
+        const nearestZone = await DeliveryZone.findOne({
+            location: {
+                $near: {
+                    $geometry: { type: "Point", coordinates: [longitude, latitude] },
+                    $maxDistance: 10000
+                }
+            }
+        });
+
+        if (nearestZone) {
+            res.json({ deliverable: true, pincode: nearestZone.pincode });
+        } else {
+            res.json({ deliverable: false });
+        }
+    } catch (error) {
+        res.json({ deliverable: false, error: "Something went wrong." });
+    }
+});
+
+
+
 app.get("/users/register",(req,res)=>{
     res.render("register.ejs");
 });
@@ -90,7 +139,7 @@ app.get("/users/login",(req,res)=>{
 });
 
 app.use("/api/auth", authRoute);
-app.use("/api/users", userRoute);
+// app.use("/api/users", userRoute);
 
 
 

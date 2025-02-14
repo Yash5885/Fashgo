@@ -117,10 +117,28 @@
         <a href="#"><img src="./images/WhatsApp_Image_2025-02-02_at_19.43.07_09ce3a4c-removebg-preview.png" style="height: 80px;" class="logo-image"></a>
     </div>
     <ul class="nav-right">
-        <li><a href="#">Enter a pincode</a></li>
+        <li><a href="#" id="openPincodeModal">
+            <span id="pincodeDisplay">Enter a pincode</span>
+        </a></li>
         <li class="icon-size" id="search-icon"><img src="./images/search-interface-symbol.png"></li>
         <li class="icon-size"><img src="./images/heart (1).png"></li>
         <li class="icon-size"><a href="users/register"><img src="./images/user.png"></a></li>
         <li class="icon-size"><a href="/carts"><img src="./images/trolley.png"></a></li>
     </ul>
+    
+    <!-- Pincode Modal -->
+    <div id="pincodeModal" class="pincode-modal">
+        <div class="pincode-modal-content">
+            <span class="pincode-close">&times;</span>
+            <h2>Check Delivery Availability</h2>
+
+            <input type="text" id="pincodeInput" placeholder="Enter Pincode">
+            <button id="applyPincode">Apply</button>
+
+            <p>or</p>
+            <button id="useMyLocation" class="pincode-use-location">Use My Location</button>
+
+            <p id="pincodeResult"></p>
+        </div>
+    </div>
 </nav>

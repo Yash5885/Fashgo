@@ -66,16 +66,23 @@ router.post('/login', async (req, res) => {
             {expiresIn:"3d"}
         );
   
-        const { password, ...others } = user._doc;  
-        // return res.status(200).json({ ...others, accessToken });
-        const users = {...others,accessToken}
+        // const { password, ...others } = user._doc;  
+        // // return res.status(200).json({ ...others, accessToken });
+        // const users = {...others,accessToken}
 
-        res.render("home.ejs",{users});
+        res.cookie("auth_token", accessToken, { httpOnly: true }).redirect("/");
+
+        // res.render("home.ejs",{users});
 
     }catch(err){
         return res.status(500).json(err);
     }
 
+
 });
+
+router.get("/logout", (req, res) => {
+      res.clearCookie("auth_token").redirect("/");
+    });
 
 module.exports = router;
