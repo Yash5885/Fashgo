@@ -15,6 +15,10 @@ const jwt = require("jsonwebtoken");
 const session = require("express-session");
 const userRoute = require("./routes/user.js");
 const authRoute = require("./routes/auth.js");
+const userMiddleware = require("./middleware/userMiddleware");
+const authMiddleware = require("./middleware/authMiddleware.js");
+const profileRoutes = require("./routes/profileRoutes");
+const cartRoutes = require('./routes/cart');
 
 dotenv.config();
 
@@ -35,27 +39,18 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(methodOverride("_method"));
 app.use(cookieParser());
+app.use(userMiddleware);
 app.use(express.urlencoded({extended:true}));
 app.use(express.json());
 
 
-app.get("/",async(req,res) => {
+app.get("/", async(req,res) => {
     const allProducts = await Product.find({});
     // console.log(allProducts);
     res.render("home.ejs",{allProducts});
 });
 
-app.get("/carts",async(req,res) => {
-    try {
-        const cartItems = await Cart.find().populate("productId");
 
-        const totalPrice = cartItems.reduce((acc, item) => acc + Number(item.productId.price), 0);
-
-        res.render("cart.ejs", { cartItems , totalPrice});
-      } catch (err) {
-        console.log(err);
-      }
-});
 
 
 // Add Product to Cart
@@ -77,16 +72,6 @@ app.post("/add-to-cart/:id", async (req, res) => {
     }
   });
 
-
-// Remove from Cart
-app.post("/remove-from-cart/:id", async (req, res) => {
-    try {
-      await Cart.findByIdAndDelete(req.params.id);
-      res.redirect("/carts");
-    } catch (err) {
-      console.log(err);
-    }
-  });
 
 
   app.post("/check-delivery", async (req, res) => {
@@ -140,6 +125,8 @@ app.get("/users/login",(req,res)=>{
 
 app.use("/api/auth", authRoute);
 // app.use("/api/users", userRoute);
+app.use("/", profileRoutes);
+app.use("/",cartRoutes);
 
 
 

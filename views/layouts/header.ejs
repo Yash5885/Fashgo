@@ -121,10 +121,33 @@
         </a></li>
         <li class="icon-size" id="search-icon"><img src="./images/search-interface-symbol.png"></li>
         <li class="icon-size"><img src="./images/heart (1).png"></li>
-        <li class="icon-size"><a href="users/register"><img src="./images/user.png"></a></li>
+        <li class="icon-size user-menu">
+            
+               <% if (!locals.user) { %>
+                <a href="#"><img src="./images/user.png"></a>
+                <div class="user-menu-dropdown">
+                    <div class="user-menu-auth">
+                        <a href="users/login" class="user-menu-login">Login</a>
+                        <a href="users/register" class="user-menu-signup">Signup</a>
+                    </div>
+              <% } else { %>
+              <!-- If user is logged in -->
+
+                <a href="/profile" class="nav-user" style="display: flex;align-items: center;justify-content: space-between;">
+                    <img src="/images/user.png" alt="User Icon" class="nav-user-img">
+                    <span class="nav-user-text">
+                        <span class="nav-user-welcome" style="font-size: 0.8rem;">Welcome</span> <br>
+                        <span class="nav-user-name" style="font-size: 0.9rem;color:#C19A6B ;"><%= locals.user.username %></span>
+                    </span>
+                </a>
+              <div class="user-menu-dropdown">
+                <a href="/profile">Profile</a>
+                <a href="api/auth/logout">Logout</a>
+              <% } %>
+              </div>
+        </li>
         <li class="icon-size"><a href="/carts"><img src="./images/trolley.png"></a></li>
     </ul>
-<<<<<<< HEAD
     
     <!-- Pincode Modal -->
     <div id="pincodeModal" class="pincode-modal">
@@ -142,6 +165,3 @@
         </div>
     </div>
 </nav>
-=======
-</nav>
->>>>>>> 7b9a0429f1762167839f2975887d732bd66041c2

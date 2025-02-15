@@ -8,6 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const pincodeResult = document.getElementById("pincodeResult");
     const pincodeDisplay = document.getElementById("pincodeDisplay"); // Navbar update
 
+
     // ✅ Keep Pincode stored and show it in the navbar
     function updatePincodeUI(pincode) {
         pincodeDisplay.innerText = `Deliverable at ${pincode}`;
@@ -19,6 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const savedPincode = localStorage.getItem("selectedPincode");
     if (savedPincode) {
         updatePincodeUI(savedPincode);
+        document.getElementById("pincode-display").textContent = savedPincode;
     }
 
     // ✅ Open Modal ONLY on click
