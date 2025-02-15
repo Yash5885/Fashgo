@@ -139,6 +139,10 @@
     transform: scale(1.1); /* Slight zoom on hover */
 }
 
+img.nav-user-img {
+    margin-right: 8px;
+}
+
 .nav-right li:first-child a {
     font-size: 16px; /* Adjust the size if needed */
     font-weight: 500; /* Makes it very light */
@@ -190,19 +194,19 @@
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Optional: adds a slight shadow */
 }
 
-.banner1234{
+.banner{
     background-color: #1B5264;
-    padding-top: 4px;
-    padding-bottom: -2px;
+    padding-top: 120px;
+    padding-bottom: 24px;
     color:white;
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.banner-text1234{
+.banner-text{
    font-size:large;
-   margin-top: 12px;
 }
+
 
 .ad {
     display: flex;
@@ -603,3 +607,158 @@ footer {
 .social-icons a:hover {
     color: gray;
 }
+
+/* Profile dropdown style */
+.user-menu {
+    position: relative;
+    display: inline-block;
+  }
+
+  /* Dropdown container */
+  .user-menu-dropdown {
+    display: none;
+    position: absolute;
+    background: #fff;
+    min-width: 200px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+    border-radius: 8px;
+    overflow: hidden;
+    top: 100%;
+    right: 0;
+    z-index: 100;
+  }
+
+  /* Show dropdown on hover */
+  .user-menu:hover .user-menu-dropdown {
+    display: block;
+  }
+
+  /* Dropdown items */
+  .user-menu-dropdown a {
+    display: block;
+    padding: 12px 16px;
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    transition: 0.3s;
+    font-size: 14px;
+  }
+
+  /* Hover effect like Myntra */
+  .user-menu-dropdown a:hover {
+    background: #f5f5f5;
+    color: #C19A6B;
+  }
+
+  /* Auth buttons for login/signup */
+  .user-menu-auth {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    gap: 5px;
+  }
+
+  .user-menu-auth a {
+    text-align: center;
+    padding: 10px;
+    border-radius: 5px;
+    font-weight: bold;
+  }
+
+  .user-menu-login {
+    background: #C19A6B;
+    color: white;
+  }
+
+  .user-menu-signup {
+    background: white;
+    border: 1px solid #C19A6B;
+    color: #C19A6B;
+  }
+
+  .user-menu-login:hover {
+    background: #d4b590;
+  }
+
+  .user-menu-signup:hover {
+    background: #d4b590;
+    color: white;
+  }
+
+  /* Profile page styling */
+  .profile-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+    width: 100%;
+    background-color: #f8f9fa; /* Light grey background for profile page */
+}
+
+/* Profile Card */
+.profile-card {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 350px;
+}
+
+/* Profile Username */
+.profile-username {
+    font-size: 22px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+/* Profile Email */
+.profile-email {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 5px;
+}
+
+/* Profile Joined Date */
+.profile-joined {
+    font-size: 14px;
+    color: #777;
+    margin-bottom: 15px;
+}
+
+/* Profile Actions */
+.profile-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+}
+
+/* Buttons */
+.profile-logout-btn, .profile-edit-btn {
+    text-decoration: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.profile-logout-btn {
+    background-color: #dc3545;
+    color: white;
+}
+
+.profile-logout-btn:hover {
+    background-color: #c82333;
+}
+
+.profile-edit-btn {
+    background-color: #007bff;
+    color: white;
+}
+
+.profile-edit-btn:hover {
+    background-color: #0056b3;
+}
+
