@@ -63,7 +63,7 @@ form .input-box input{
 }
 .input-box input:focus,
 .input-box input:valid{
-  border-color: #4070f4;
+  border-color: #d7b68e;
 }
 form .policy{
   display: flex;
@@ -92,7 +92,7 @@ form .text h3{
  text-align: center;
 }
 form .text h3 a{
-  color: #4070f4;
+  color: #C19A6B;
   text-decoration: none;
 }
 form .text h3 a:hover{

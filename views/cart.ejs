@@ -80,7 +80,11 @@
                     <p>Subtotal <span>₹<%= totalPrice %></span></p>
                     <p class="total">Total <span>₹<%= totalPrice %></span></p>
                 </div>
-                <button class="login-btn">LOGIN</button>
+                <% if (!locals.user) { %>
+                    <button class="login-btn">LOGIN</button>
+                <% } else { %>
+                    <button class="login-btn">BUY NOW</button>  
+                <% } %>
                 <button class="share-cart">SHARE SHOPPING CART</button>
             </div>
         </div>
